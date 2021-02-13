@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2021_02_13_164242) do
   create_table "campuses_courses", id: false, force: :cascade do |t|
     t.integer "campus_id", null: false
     t.integer "course_id", null: false
+    t.index ["campus_id"], name: "index_campuses_courses_on_campus_id"
+    t.index ["course_id"], name: "index_campuses_courses_on_course_id"
   end
 
   create_table "courses", force: :cascade do |t|
