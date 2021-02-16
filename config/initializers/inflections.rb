@@ -15,6 +15,6 @@
 #   inflect.acronym 'RESTful'
 # end
 ActiveSupport::Inflector.inflections do |inflect|
-    # Irregulares
-    inflect.irregular "campus", "campuses"
-  end
+  # Irregulares
+  inflect.irregular "campus", "campuses"
+end

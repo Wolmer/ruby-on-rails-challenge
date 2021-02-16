@@ -3,14 +3,19 @@ class OffersController < ApplicationController
 
   # GET /offers
   def index
-    @offers = Offer.all
+    orderBy   = params[:order_by] ? params[:order_by] : 'id'
+    direction = params[:direction] ? params[:direction] : 'asc'
+    @offers   = Offer
+      .filter(params.slice(:university, :course, :kind, :level, :shift, :city))
+      .order("#{orderBy} #{direction}")
+
     json_response(toJson(@offers))
   end
 
   private
 
   def toJson(offers)
-    data     = []
+    data = []
     offers.each do |offer|
       offer.course.campus.each() do |campus|
         data.push({
@@ -38,7 +43,6 @@ class OffersController < ApplicationController
         })
       end
     end
-
-    return data
+    data
   end
 end

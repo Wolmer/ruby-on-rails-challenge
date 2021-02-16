@@ -3,17 +3,16 @@ class CoursesController < ApplicationController
 
   # GET /courses
   def index
-    # data     = []
-    @courses = Course.all
+    @courses = Course.filter(params.slice(:university, :kind, :level, :shift))
     json_response(toJson(@courses))
   end
 
   private
 
   def toJson(courses)
-    data     = []
+    data = []
     courses.each do |course|
-      course.campus.map() do |campus|
+      course.campus.each() do |campus|
         data.push({
           course: {
             name: course.name,
@@ -33,7 +32,6 @@ class CoursesController < ApplicationController
         })
       end
     end
-
-    return data
+    data
   end
 end
