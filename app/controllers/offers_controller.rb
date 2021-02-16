@@ -3,7 +3,12 @@ class OffersController < ApplicationController
 
   # GET /offers
   def index
-    @offers = Offer.all
+    orderBy   = params[:order_by] ? params[:order_by] : 'offer.id'
+    direction = params[:direction] ? params[:direction] : 'asc'
+    @offers   = Offer
+      .filter(params.slice(:university, :course, :kind, :level, :shift, :city))
+      .order("#{params[:order_by]} #{direction}")
+
     json_response(toJson(@offers))
   end
 

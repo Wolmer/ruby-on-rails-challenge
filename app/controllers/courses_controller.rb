@@ -3,8 +3,7 @@ class CoursesController < ApplicationController
 
   # GET /courses
   def index
-    # data     = []
-    @courses = Course.all
+    @courses = Course.filter(params.slice(:university, :kind, :level, :shift))
     json_response(toJson(@courses))
   end
 
