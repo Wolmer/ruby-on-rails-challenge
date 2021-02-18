@@ -1,17 +1,27 @@
 class CoursesController < ApplicationController
   before_action :index
 
+  include ApiCache
+
   # GET /courses
   def index
-    @courses = Course.filter(params.slice(:university, :kind, :level, :shift))
-    json_response(toJson(@courses))
+    json_response(
+      Rails.cache.fetch(get_cache_key()) do
+        getData()
+      end
+    )
   end
 
   private
 
-  def toJson(courses)
+  def availableParams()
+    params.slice(:university, :kind, :level, :shift)
+  end
+
+  def getData()
     data = []
-    courses.each do |course|
+
+    Course.filter(availableParams).each do |course|
       course.campus.each() do |campus|
         data.push({
           course: {
@@ -32,6 +42,7 @@ class CoursesController < ApplicationController
         })
       end
     end
+    
     data
   end
 end
