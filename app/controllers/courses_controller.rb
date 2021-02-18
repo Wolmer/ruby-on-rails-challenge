@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
   before_action :index
 
+  include ApiCache
+
   # GET /courses
   def index
     json_response(
