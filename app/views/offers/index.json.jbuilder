@@ -1,4 +1,4 @@
-json.cache! ['v1', @cache_key], expires_in: 2.minutes do
+json.cache! ['v1', @cache_key], expires_in: 60.minutes do
   json.array! @offers do |offer|
     offer.course.campus.each do |campus|
       json.full_price offer.course.price
