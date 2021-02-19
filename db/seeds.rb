@@ -3,6 +3,12 @@ require 'json'
 file   = File.read("#{__dir__}/db.json")
 offers = JSON.parse(file)
 
+User.create({
+  name: 'Test User',
+  email: 'test@example.com',
+  password: 'password'
+})
+
 offers.each do |offer| 
   universityData = {
     name: offer['university']['name'],

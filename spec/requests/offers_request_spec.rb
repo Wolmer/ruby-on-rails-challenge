@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Offers API", type: :request do
-  # # initialize test data
+  # initialize test data
   let(:university) { create(:university) }
   let(:course) { create(:course, university: university) }
   let(:offers) { create_list(:offer, 10, course: course) }

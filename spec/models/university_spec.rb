@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe University, type: :model do
   describe 'associations' do
-    # Association test
     it { is_expected.to have_many(:campus).dependent(:destroy) }
     it { is_expected.to have_many(:course).dependent(:destroy) }
   end

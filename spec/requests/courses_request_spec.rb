@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Courses API" do
-  # # initialize test data
+  # initialize test data
   let(:university) { create(:university) }
   let(:courses) { create_list(:course, 10, university: university) }
 
