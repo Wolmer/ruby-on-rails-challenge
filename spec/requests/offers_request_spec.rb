@@ -21,5 +21,13 @@ RSpec.describe "Offers API", type: :request do
       expect(json).not_to be_empty
       expect(json.size).to eq(10)
     end
+
+    it 'returns response json' do
+      expect(response.header['Content-Type']).to include( 'application/json')
+    end
+
+    it 'responds with JSON' do
+      expect(response).to match_response_schema("offer")
+    end
   end
 end

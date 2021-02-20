@@ -36,6 +36,7 @@ group :test do
   gem 'shoulda-matchers', '~> 4.5.1'
   gem 'faker', '~> 2.16'
   gem 'database_cleaner'
+  gem "json-schema"
 end
 
 group :development do

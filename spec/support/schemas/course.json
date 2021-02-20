@@ -1,0 +1,49 @@
+{
+  "items" : {
+    "type" : [
+      {
+        "course" : {
+          "type"       : "object",
+          "required"   : [
+            "name",
+            "kind",
+            "level",
+            "shift",
+            "university",
+            "campus"
+          ],
+          "properties" : {
+            "name"       : { "type" : "string" },
+            "kind"       : { "type" : "string" },
+            "level"      : { "type" : "string" },
+            "shift"      : { "type" : "string" },
+            "university" : {
+              "type"       : "object",
+              "required"   : [
+                "name",
+                "score",
+                "logo_url"
+              ],
+              "properties" : {
+                "name"     : { "type" : "string" },
+                "score"    : { "type" : "float" },
+                "logo_url" : { "type" : "string" }
+              }
+            },
+            "campus"     : {
+              "type"       : "object",
+              "required"   : [
+                "name",
+                "city"
+              ],
+              "properties" : {
+                "name" : { "type" : "string" },
+                "city" : { "type" : "string" }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

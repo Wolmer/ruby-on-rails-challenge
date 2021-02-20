@@ -1,0 +1,67 @@
+{
+  "items" : {
+    "type" : [
+      {
+        "type"       : "object",
+        "required"   : [
+          "full_price",
+          "price_with_discount",
+          "discount_percentage",
+          "start_date",
+          "enrollment_semester",
+          "enabled",
+          "course",
+          "university",
+          "campus"
+        ],
+        "properties" : {
+          "full_price"          : { "type" : "float" },
+          "price_with_discount" : { "type" : "float" },
+          "discount_percentage" : { "type" : "float" },
+          "start_date"          : { "type" : "string" },
+          "enrollment_semester" : { "type" : "string" },
+          "enabled"             : { "type" : "boolean" },
+          "course"              : {
+            "type"       : "object",
+            "required"   : [
+              "name",
+              "kind",
+              "level",
+              "shift"
+            ],
+            "properties" : {
+              "name"       : { "type" : "string" },
+              "kind"       : { "type" : "string" },
+              "level"      : { "type" : "string" },
+              "shift"      : { "type" : "string" }
+            }
+          },
+          "university"          : {
+            "type"       : "object",
+            "required"   : [
+              "name",
+              "score",
+              "logo_url"
+            ],
+            "properties" : {
+              "name"     : { "type" : "string" },
+              "score"    : { "type" : "float" },
+              "logo_url" : { "type" : "string" }
+            }
+          },
+          "campus"              : {
+            "type"       : "object",
+            "required"   : [
+              "name",
+              "city"
+            ],
+            "properties" : {
+              "name" : { "type" : "string" },
+              "city" : { "type" : "string" }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
