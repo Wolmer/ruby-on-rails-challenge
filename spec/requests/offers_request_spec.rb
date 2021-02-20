@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Offers API", type: :request do
-  # initialize test data
-  let(:university) { create(:university) }
-  let(:course) { create(:course, university: university) }
-  let(:offers) { create_list(:offer, 10, course: course) }
-
   # Test suite for GET /offers
   describe 'GET /offers' do
-    before { get '/offers' }
+    # initialize test data
+    let!(:user)       { create(:user) }
+    let!(:university) { build(:university) }
+    let!(:campus)     { create(:campus, university: university) }
+    let!(:course)     { create(:course, university: university, campus: [campus]) }
+    let!(:offers)     { create_list(:offer, 10, course: course) }
+    let!(:headers)    { valid_headers }
+
+    before { get '/offers', headers: headers }
 
     it 'returns status code 200' do
       expect(response).to have_http_status(200)

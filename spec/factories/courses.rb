@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :course, parent: :university do
+  factory :course do
     name { Faker::University.name }
     kind { Faker::Lorem.word }
     level { Faker::Lorem.word }
