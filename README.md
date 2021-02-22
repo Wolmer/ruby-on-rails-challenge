@@ -10,8 +10,8 @@ O projeto contém no total 3 rotas, sendo a terceira para autenticação JWT, re
 
 Após estudar Ruby, e Ruby on Rails, consegui produzir uma API contendo:
 
-- Migrations (cria o banco de dados automáticamente, mantendo seu histórico)
-- Seeder (popula o banco com dados à partir do json de exemplo)
+- Migrations (cria o banco de dados automaticamente, mantendo seu histórico)
+- Seeder (popular o banco com dados à partir do json de exemplo)
 - Testes unitários (das models e rotas com criação do banco com dados fictícios)
 - Rota para autenticação JWT **/auth/login**
 - Rotas para retornar os dados de cursos e ofertas:
